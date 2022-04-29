@@ -2,10 +2,8 @@ package com.mramalldo.mvvmkotlinex.ui.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import com.mramalldo.mvvmkotlinex.databinding.ActivityMainBinding
 import com.mramalldo.mvvmkotlinex.ui.viewmodel.QuoteViewModel

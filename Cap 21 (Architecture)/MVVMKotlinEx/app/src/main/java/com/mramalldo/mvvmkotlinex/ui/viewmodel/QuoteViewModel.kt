@@ -17,29 +17,18 @@ class QuoteViewModel: ViewModel(){
     var getRandomQuoteUseCase = GetRandomQuoteUseCase()
 
     fun onCreate(){
-        /*viewModelScope.launch {
-            var result = getQuotesUseCase()
-
-            if(!result.isNullOrEmpty()){
-                quoteModel.postValue(result[0])
-            }
-        }*/
         viewModelScope.launch {
             isLoading.postValue(true)
             val result = getQuotesUseCase()
 
-            if(result != null) {
-                if (!result.results.isNullOrEmpty()) {
-                    quoteModel.postValue(result.results[0])
-                    isLoading.postValue(false)
-                }
+            if (!result.results.isNullOrEmpty()) {
+                quoteModel.postValue(result.results[0])
+                isLoading.postValue(false)
             }
         }
     }
 
     fun randomQuote(){
-        //val currentQuote = QuoteProvider.random()
-        //quoteModel.postValue(currentQuote)
         isLoading.postValue(true)
         val quote = getRandomQuoteUseCase()
         if(quote != null){

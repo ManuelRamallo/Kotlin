@@ -1,9 +1,6 @@
 package com.mramalldo.mvvmkotlinex.data.model
 
-import com.google.gson.annotations.SerializedName
 import kotlinx.serialization.Serializable
-
-/*data class QuoteModel(@SerializedName("quote") val quote: String, @SerializedName("author") val author: String)*/
 
 @Serializable
 data class QuoteModel (
