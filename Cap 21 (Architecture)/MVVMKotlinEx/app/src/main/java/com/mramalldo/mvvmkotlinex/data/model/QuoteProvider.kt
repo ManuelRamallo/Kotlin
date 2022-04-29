@@ -1,15 +1,19 @@
-package com.mramalldo.mvvmkotlinex.model
+package com.mramalldo.mvvmkotlinex.data.model
 
 import kotlin.random.Random
 
 class QuoteProvider {
     companion object {
-        fun random():QuoteModel{
+
+        /*var quotes:List<QuoteModel> = emptyList()*/
+        lateinit var quotes:QuoteModel
+
+        /*fun random(): QuoteModel {
             val position = Random.nextInt(0, 9)
             return quote[position]
-        }
+        }*/
 
-        private val quote = listOf<QuoteModel>(
+        /*private val quote = listOf<QuoteModel>(
             QuoteModel(
                 quote = "It's not a bug. It's an undocumented feature!",
                 author = "Anonymous"
@@ -49,7 +53,7 @@ class QuoteProvider {
             QuoteModel(
                 quote = "It’s hard enough to find an error in your code when you’re looking for it; it’s even harder when you’ve assumed your code is error-free.",
                 author = "Steve McConnell"
-            ),
-        )
+            )*/
+        //)
     }
 }

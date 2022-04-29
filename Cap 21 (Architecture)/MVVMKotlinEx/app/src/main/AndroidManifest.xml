@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MVVMKotlinEx">
         <activity
-            android:name=".view.MainActivity"
+            android:name="com.mramalldo.mvvmkotlinex.ui.view.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

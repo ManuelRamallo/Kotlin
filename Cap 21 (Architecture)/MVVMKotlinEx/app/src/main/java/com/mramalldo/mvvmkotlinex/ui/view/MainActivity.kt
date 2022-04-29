@@ -1,11 +1,14 @@
-package com.mramalldo.mvvmkotlinex.view
+package com.mramalldo.mvvmkotlinex.ui.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
+import androidx.core.view.isVisible
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import com.mramalldo.mvvmkotlinex.databinding.ActivityMainBinding
-import com.mramalldo.mvvmkotlinex.viewmodel.QuoteViewModel
+import com.mramalldo.mvvmkotlinex.ui.viewmodel.QuoteViewModel
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,9 +21,15 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        quoteViewModel.onCreate()
+
         quoteViewModel.quoteModel.observe(this, Observer{ currentQuote ->
-            binding.tvQuote.text = currentQuote.quote
+            binding.tvQuote.text = currentQuote.content
             binding.tvAuthor.text = currentQuote.author
+        })
+
+        quoteViewModel.isLoading.observe(this, Observer{
+            binding.progress.isVisible = it
         })
 
         binding.viewContainer.setOnClickListener{
