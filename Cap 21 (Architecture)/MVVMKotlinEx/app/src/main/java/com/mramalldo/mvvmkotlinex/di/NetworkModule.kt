@@ -20,11 +20,11 @@ import javax.inject.Singleton
 
 
 @Module
-@InstallIn(SingletonComponent::class)
+@InstallIn(SingletonComponent::class) // Esto es a nivel de aplicación
 object NetworkModule {
 
-    @Singleton
-    @Provides
+    @Singleton // Con esto mantiene una unica instancia, no crea diferentes instancias
+    @Provides // Con esto provee cualquier cosa que nosotros queramos, esto siempre tiene que ir puesto
     fun provideRetrofit(): Retrofit {
         return Retrofit.Builder().baseUrl("https://api.quotable.io/")
             .addConverterFactory(GsonConverterFactory.create()).build()
