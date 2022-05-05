@@ -61,6 +61,14 @@ dependencies {
     // Dagger Hilt
     implementation "com.google.dagger:hilt-android:$hilt_version"
     kapt "com.google.dagger:hilt-compiler:$hilt_version"
+    // ROOM
+    implementation "androidx.room:room-ktx:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+    /*implementation 'com.android.support:design:26.1.0'
+    implementation 'com.android.support:recyclerview-v7:26.1.0'*/
+    /*implementation 'org.jetbrains.anko:anko-common:0.9'
+    implementation "android.arch.persistence.room:runtime:1.1.1"
+    kapt "android.arch.persistence.room:compiler:1.1.1"*/
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
