@@ -1,8 +1,8 @@
 package com.mramalldo.mvvmkotlinex.data.database.entities
 
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+import androidx.room.*
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import com.mramalldo.mvvmkotlinex.domain.model.Quote
 
 @Entity(tableName = "quote_table")

@@ -29,4 +29,8 @@ class QuoteRepository @Inject constructor(
         quoteDao.insertAll(quote)
     }
 
+    suspend fun clearQuotes(){
+        quoteDao.deleteAllQuotes()
+    }
+
 }

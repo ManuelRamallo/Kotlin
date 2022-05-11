@@ -12,12 +12,15 @@ class GetQuotesUseCase @Inject constructor(private val repository: QuoteReposito
     suspend operator fun invoke(): Quote {
         val quotes = repository.getAllQuotesFromApi()
 
-        if(quotes != null) {
+        return if(quotes != null) {
+            repository.clearQuotes()
             repository.insertQuote(quotes.toDataBase())
+            quotes
         } else {
             repository.getAllQuotesFromDataBase()
         }
 
+        //TODO - FALTA TERMINAR ESTO
     }
 
 }

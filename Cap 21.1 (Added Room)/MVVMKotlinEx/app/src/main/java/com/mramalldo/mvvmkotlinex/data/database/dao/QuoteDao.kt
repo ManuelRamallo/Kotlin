@@ -15,4 +15,7 @@ interface QuoteDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(quote: QuoteEntity)
 
+    @Query("DELETE FROM quote_table")
+    suspend fun deleteAllQuotes()
+
 }

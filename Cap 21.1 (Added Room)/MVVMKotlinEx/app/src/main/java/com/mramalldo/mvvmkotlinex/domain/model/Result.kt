@@ -6,7 +6,7 @@ import kotlinx.serialization.SerialName
 
 data class Result(
     val tags: List<String>,
-    val id: String,
+    val id: String?,
     val author: String,
     val content: String,
     val authorSlug: String,
