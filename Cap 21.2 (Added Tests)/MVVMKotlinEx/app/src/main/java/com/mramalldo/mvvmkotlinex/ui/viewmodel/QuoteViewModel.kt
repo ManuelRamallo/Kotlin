@@ -24,8 +24,10 @@ class QuoteViewModel @Inject constructor(
             isLoading.postValue(true)
             val result = getQuotesUseCase()
 
-            if (!result.results.isNullOrEmpty()) {
-                quoteModel.postValue(result.results[0])
+            if (!result?.results.isNullOrEmpty()) {
+                if (result != null) {
+                    quoteModel.postValue(result.results[0])
+                }
                 isLoading.postValue(false)
             }
         }

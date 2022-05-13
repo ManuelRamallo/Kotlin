@@ -10,7 +10,7 @@ import com.mramalldo.mvvmkotlinex.data.database.entities.QuoteEntity
 interface QuoteDao {
 
     @Query("SELECT * FROM quote_table")
-    suspend fun getAllQuotes():QuoteEntity
+    suspend fun getAllQuotes():QuoteEntity?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(quote: QuoteEntity)

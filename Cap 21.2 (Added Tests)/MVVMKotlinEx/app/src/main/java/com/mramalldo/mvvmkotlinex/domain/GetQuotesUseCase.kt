@@ -9,7 +9,7 @@ import javax.inject.Inject
 class GetQuotesUseCase @Inject constructor(private val repository: QuoteRepository){
 
     // Este caso de uso lo realiza solo cuando abre la primera vez la app, asi que lo suyo es que recupere de la API los datos
-    suspend operator fun invoke(): Quote {
+    suspend operator fun invoke(): Quote? {
         val quotes = repository.getAllQuotesFromApi()
 
         return if(quotes != null) {
@@ -19,8 +19,6 @@ class GetQuotesUseCase @Inject constructor(private val repository: QuoteReposito
         } else {
             repository.getAllQuotesFromDataBase()
         }
-
-        //TODO - FALTA TERMINAR ESTO
     }
 
 }

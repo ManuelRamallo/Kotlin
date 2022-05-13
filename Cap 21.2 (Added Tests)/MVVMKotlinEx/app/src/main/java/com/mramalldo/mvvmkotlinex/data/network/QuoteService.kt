@@ -12,12 +12,12 @@ class QuoteService @Inject constructor( private val apiClient: QuoteApiClient) {
 
     //private val retrofit = RetrofitHelper.getRetrofit()
 
-    suspend fun getQuotes():QuoteModel{
+    suspend fun getQuotes():QuoteModel? {
         return withContext(Dispatchers.IO) {
             // Esto comentado era antes sin usar Dagger Hilt
             // val response = retrofit.create(QuoteApiClient::class.java).getAllQuotes()
             val response = apiClient.getAllQuotes()
-            response.body()!!
+            response.body()
         }
     }
 

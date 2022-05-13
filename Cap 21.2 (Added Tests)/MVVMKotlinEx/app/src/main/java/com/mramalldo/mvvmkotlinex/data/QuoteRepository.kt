@@ -15,14 +15,14 @@ class QuoteRepository @Inject constructor(
     private val quoteDao: QuoteDao
 ) {
 
-    suspend fun getAllQuotesFromApi(): Quote {
+    suspend fun getAllQuotesFromApi(): Quote? {
         val response = api.getQuotes() // Primero obtenemos desde la corrutina del backend  y recupero las citas
-        return response.toDomain()// Devolvemos la respuesta
+        return response?.toDomain()// Devolvemos la respuesta
     }
 
-    suspend fun getAllQuotesFromDataBase(): Quote {
+    suspend fun getAllQuotesFromDataBase(): Quote? {
         val response = quoteDao.getAllQuotes()
-        return response.toDomain()
+        return response?.toDomain()
     }
 
     suspend fun insertQuote(quote: QuoteEntity) {
