@@ -22,11 +22,11 @@ class QuoteViewModel @Inject constructor(
     fun onCreate() {
         viewModelScope.launch {
             isLoading.postValue(true)
-            val result = getQuotesUseCase()
+            val quote = getQuotesUseCase()
 
-            if (!result?.results.isNullOrEmpty()) {
-                if (result != null) {
-                    quoteModel.postValue(result.results[0])
+            if (!quote?.results.isNullOrEmpty()) {
+                if (quote != null) {
+                    quoteModel.postValue(quote.results[0])
                 }
                 isLoading.postValue(false)
             }
