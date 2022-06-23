@@ -23,6 +23,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class) // Esto es a nivel de aplicación
 object NetworkModule {
 
+    // Provee retrofit para poder usarlo siempre que queramos y donde queramos
     @Singleton // Con esto mantiene una unica instancia, no crea diferentes instancias
     @Provides // Con esto provee cualquier cosa que nosotros queramos, esto siempre tiene que ir puesto
     fun provideRetrofit(): Retrofit {
@@ -30,6 +31,7 @@ object NetworkModule {
             .addConverterFactory(GsonConverterFactory.create()).build()
     }
 
+    // Provee el api client de citas para poder usarlo cuando nos haga falta
     @Singleton
     @Provides
     fun provideQuoteApiClient(retrofit: Retrofit): QuoteApiClient {
